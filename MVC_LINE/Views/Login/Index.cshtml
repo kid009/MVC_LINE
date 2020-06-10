@@ -1,0 +1,25 @@
+﻿@model MVC_LINE.Models.UserData
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+
+        <h2>@ViewBag.Head @ViewBag.Title</h2>
+
+        <div class="form-group">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="@Model.Username">
+        </div>
+
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="@Model.Password">
+        </div>
+
+        <input type="submit" class="form-group btn btn-info" value="Login" />
+
+    </div>
+}
+
+
+

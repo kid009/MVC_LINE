@@ -1,0 +1,107 @@
+﻿@model MVC_LINE.Models.UserData
+
+
+@using (Html.BeginForm())
+{
+    if (ViewData["dataDic"] != null)
+    {
+        <div class="container">
+
+            <h2>Datas</h2>
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Username</th>
+                        <th>name</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var data in ViewData["dataDic"] as Dictionary<string, MVC_LINE.Models.UserData>)
+                    {
+                        <tr>
+                            <td>@data.Key</td>
+                            <td>@data.Value.Username</td>
+                            <td>@data.Value.Name</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    }
+
+    <div class="container">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">@ViewBag.Title</div>
+
+            <div class="panel-body">
+
+                <div class="form-group-sm">
+                    <input type="submit" id="editBtn" name="editBtn" class="btn btn-success" value="Edit" />
+                </div>
+
+                <br />
+
+                <div class="form-group-sm">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+
+                <br />
+
+                <div class="form-group-sm">
+                    @Html.DropDownListFor(x => x.Jobs, new List<SelectListItem>
+                    {
+                        new SelectListItem() {Text = "Programmer", Value = "Programmer"},
+                        new SelectListItem() {Text = "Doctor", Value = "Doctor", Selected = true },
+                        new SelectListItem() {Text = "Police", Value = "Police" }
+                    }, new { @class = "form-control selectric" })
+                </div>
+
+                <br />
+
+                <div class="form-group-sm">
+                    @Html.ListBoxFor(x => x.Salary, new List<SelectListItem>
+                   {
+                        new SelectListItem() {Text = "1000", Value="1000", Selected = true},
+                        new SelectListItem() {Text = "2000", Value="2000"},
+                        new SelectListItem() {Text = "3000", Value="3000"},
+                   }, new { @class = "form-control selectric" })
+                </div>
+
+                <br />
+
+                <div class="form-group-sm">
+
+                    <label class="text-info">Male</label>
+                    @Html.RadioButtonFor(x => x.Gender, "Male", new { @class = "label-success btn btn-danger" })
+
+                    <label class="text-info">Female</label>
+                    @Html.RadioButtonFor(x => x.Gender, "Female", new { @class = "label-success " })
+
+                </div>
+
+                <br />
+
+                <div class="form-group-sm">
+
+                    <label class="text-info">User</label>
+                    @Html.CheckBoxFor(x => x.User)
+
+                    <label class="text-info">Admin</label>
+                    @Html.CheckBoxFor(x => x.Admin)
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+}
+
