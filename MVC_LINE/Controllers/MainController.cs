@@ -19,11 +19,11 @@ namespace MVC_LINE.Controllers
                 string usernameTemp = TempData["usernameTemp"].ToString();
                 string usernameSession = Session["usernameSession"].ToString();
 
-                var data = new Dictionary<string, UserData>()
+                var data = new Dictionary<string, UserDATA>()
                 {
-                    {"K001", new UserData{ Username = "0001", Name = "Pongpoom"} },
-                    {"K002", new UserData{ Username = "0002", Name = "Tomas"} },
-                    {"K003", new UserData{ Username = "0003", Name = "Jinny"} }
+                    {"K001", new UserDATA{ USERID = "0001", Name = "Pongpoom"} },
+                    {"K002", new UserDATA{ USERID = "0002", Name = "Tomas"} },
+                    {"K003", new UserDATA{ USERID = "0003", Name = "Jinny"} }
                 };
 
                 ViewData["dataDic"] = data;
@@ -33,7 +33,7 @@ namespace MVC_LINE.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(UserData data)
+        public ActionResult Index(UserDATA data)
         {
             ViewBag.Title = "HTML Helper";
 

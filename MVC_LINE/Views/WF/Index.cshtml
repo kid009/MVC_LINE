@@ -1,0 +1,49 @@
+﻿@model MVC_LINE.Models.EmployeeDATA
+
+
+<div class="container">
+
+    <h2>ชื่อผู้ใช้</h2>
+
+    <table class="table table-striped">
+
+        <tr>
+            <td>Name: </td>
+            <td>@Model.FIRSTNAME @Model.LASTNAME</td>
+        </tr>
+
+        <tr>
+            <td>Position: </td>
+            <td>@Model.POSITION</td>
+        </tr>
+
+        <tr>
+            <td>Department: </td>
+            <td>@Model.DEPARTMENT</td>
+        </tr>
+
+    </table>
+
+    <hr />
+
+    <h2>ประวัติ</h2>
+
+    <table class="table table-striped">
+
+        @if (ViewData["REQDATA"] != null)
+        {
+            foreach (MVC_LINE.Models.RequestDATA req in ViewData["REQDATA"] as List<MVC_LINE.Models.RequestDATA>)
+            {
+                <tr>
+                    <td>@Html.ActionLink(req.REQCODE, "Index", "History", new { reqcode = req.REQCODE }, null)</td>
+                    <td>@req.USERID</td>
+                    <td>@req.POSITION</td>
+                    <td>@req.DEPARTMENT</td>
+                </tr>
+            }
+        }
+
+    </table>
+
+</div>
+

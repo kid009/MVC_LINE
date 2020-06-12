@@ -5,10 +5,10 @@ using System.Web;
 
 namespace MVC_LINE.Models
 {
-    public class UserData
+    public class UserDATA
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string USERID { get; set; }
+        public string PASSWORD { get; set; }
         public string Name { get; set; }
         public string Jobs { get; set; }
         public double Salary { get; set; }
